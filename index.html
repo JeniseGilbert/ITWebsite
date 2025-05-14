@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Information Technology | IT Support</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .breadcrumb-banner {
+      background-color: #ffb400;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      position: relative;
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0% 100%);
+    }
+
+    .breadcrumb-container {
+      background: #fff;
+      padding: 1rem 2rem;
+    }
+
+    .breadcrumb-container small {
+      color: #990000;
+      font-weight: bold;
+    }
+
+    .breadcrumb-banner h1 {
+      margin: 0;
+      color: #002244;
+      font-weight: bold;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #0056a6);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h2 {
+      margin: 0 0 1rem;
+    }
+    
+    .intro-paragraph {
+  font-size: 1.35rem;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+    .role-section {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .role-section h2 {
+      margin-bottom: 2rem;
+    }
+
+    .role-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .role-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 240px;
+      text-align: center;
+      transition: transform 0.2s;
+      display: block; /* Makes the entire <a> area clickable */
+      cursor: pointer;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .role-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+
+    .role-card h3 {
+      margin-top: 0.5rem;
+    }
+
+    .role-card a {
+      text-decoration: none;
+      color: #003366;
+    }
+
+
+/*Modal section*/
+
+.modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .modal-content img {
+      max-width: 45%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .modal-content .text {
+      font-size: 1.1rem;
+      flex: 1;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
+
+
+
+    .support-section {
+      background: #e9edf2;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .support-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .support-buttons a {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="breadcrumb-container">
+    <small>HOME</small>
+    <div class="breadcrumb-banner" style="max-width: fit-content; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+      <h1>Information Technology</h1>
+    </div>
+  </div>
+
+<section class="role-section">
+  <h2>Welcome to the IT Department</h2>
+   <p class="intro-paragraph">
+    The Lee College Information Technology Department is dedicated to supporting students, faculty, and staff through reliable services, innovative solutions, and responsive technical assistance. We provide essential tools such as secure network access, Microsoft 365, Blackboard, data analytics, audio/visual support, and much more. Our divisions work behind the scenes and on the front lines to ensure smooth digital experiences across campus.
+  </p>
+
+  
+</section>
+
+
+  <header>
+    <h2>Select Your Role</h2>
+    <p>Choose your path to get personalized IT support and services.</p>
+  </header>
+
+ <section class="role-section">
+  <div class="role-cards">
+    
+    <a href="student-support.html" class="role-card" style="text-decoration: none; color: inherit;">
+      <img src="https://img.icons8.com/ios-filled/50/003366/student-male.png" alt="Student Icon" />
+      <h3>Student</h3>
+      <p>Access WiFi, Blackboard, OneLogin, and Microsoft 365 support.</p>
+    </a>
+
+    <a href="faculty-support.html" class="role-card" style="text-decoration: none; color: inherit;">
+      <img src="https://img.icons8.com/ios-filled/50/003366/conference-call.png" alt="Faculty Icon" />
+      <h3>Faculty</h3>
+      <p>View Blackboard tools, teaching tech, and course setup resources.</p>
+    </a>
+
+  </div>
+</section>
+
+  
+ <header style="background-color: #f0f4fa; padding: 2rem 1rem; border-radius: 10px; margin-bottom: 2rem;">
+  <h2>IT Divisions</h2>
+  <p style="max-width: 700px; margin: 0 auto; font-size: 1.05rem;">
+   Meet the specialized divisions that secure, support, and power Lee College’s digital ecosystem.
+  </p>
+</header>
+
+
+  <section class="role-section">
+  <div class="role-cards" style="margin-top: 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+    
+    <div class="role-card" onclick="openModal('modal1')"style="width: 180px; height: 190px; padding: 1rem; font-size: 0.85rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/003366/lock.png" alt="Cybersecurity Icon" style="margin-bottom: 0.5rem;" />
+        <h3><span>Data Analytics & Cybersecurity</span></h3>
+
+      </div>
+      <p>Security, data reporting, and BI tools.</p>
+    </div>
+
+    <div class="role-card" onclick="openModal('modal2')" style="width: 180px; height: 190px; padding: 1rem; font-size: 0.85rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/003366/headset.png" alt="Help Desk Icon" style="margin-bottom: 0.5rem;" />
+        <h3><span>MyLC Help Desk</span></h3>
+      </div>
+      <p>Login, access, device, and ID support.</p>
+    </div>
+
+    <div class="role-card"onclick="openModal('modal3')" style="width: 180px; height: 190px; padding: 1rem; font-size: 0.85rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/003366/video-conference.png" alt="A/V Icon" style="margin-bottom: 0.5rem;" />
+        <h3><span>Digital Systems & A/V</span></h3>
+      </div>
+      <p>Classroom and event tech support.</p>
+    </div>
+
+    <div class="role-card" onclick="openModal('modal4')" style="width: 180px; height: 190px; padding: 1rem; font-size: 0.85rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/003366/cloud-network.png" alt="Cloud Icon" style="margin-bottom: 0.5rem;" />
+        <h3><span>Data Center Hybrid & Cloud</span></h3>
+      </div>
+      <p>Network and server infrastructure.</p>
+    </div>
+
+    <div class="role-card" onclick="openModal('modal5')" style="width: 180px; height: 190px; padding: 1rem; font-size: 0.85rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/003366/data-in-both-directions.png" alt="ERP Icon" style="margin-bottom: 0.5rem;" />
+            <div style="min-height: 3.5rem;">
+        <h3><span>ERP Systems & Applications Integrations</span></h3>
+      </div>
+      <p>Blackboard, ERP, and integrations.</p>
+    </div>
+
+  </div>
+  </section>
+  
+  
+  <!-- Modal Structure -->
+<!-- MODAL 1 -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      
+      <div class="text">
+        <h3>Data Analytics & Cybersecurity</h3>
+        <p>The Data Analytics & Cybersecurity division ensures data integrity, security, and compliance across campus systems. Specializing in Power BI and Tableau for data visualization, audit and compliance monitoring, and governance, the division aligns IT operations with institutional policies. The Information Security Operations Compliance (ISOC) unit safeguards sensitive information, mitigating cyber risks through proactive monitoring and security protocols. Additionally, the division compiles executive summaries and reports for leadership, helping drive informed decision-making. Dr. Carolyn Lightfoot leads compliance analysis efforts, ensuring adherence to federal, state, and institutional regulations while maintaining a secure IT environment.</p>
+      </div>
+    </div>
+  </div>
+<!-- MODAL 2 -->
+ <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <div class="text">
+        <h3>MyLC Help Desk</h3>
+        <p>Serving as the all-in-one technology support resource for students, faculty, and staff, the MYLC Campus Concierge Technology Services division provides identity and access management, Blackboard 24/7/365 support, classroom technology assistance, mobile device support, and inventory tracking through Matrix Stats. The MYLC Service Desk team—Nataly Martinez, Harrison Zerbe, Michael Nguyen, and Ethan Rue—delivers frontline support to resolve technical issues efficiently. Patricia Rios, also the Senior Administrative Specialist, oversees identity and network access services, ensuring secure and seamless login experiences.
+Additionally, Karen Vasquez and Yaricza Gurrusquieta manage the mail call center, handling outgoing business and personal mail services for the college.
+</p>
+      </div>
+    </div>
+  </div>
+<!-- MODAL 3 -->
+<div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal3')">&times;</span>
+      <div class="text">
+        <h3>Digital Systems & Audio/Visual</h3>
+        <p>Enhancing instructional and administrative experiences, the Digital Systems & Audio/Visual division manages audio-visual technology, digital displays, virtual meetings, instructional modalities, and web conferencing solutions. Supporting classrooms, conference rooms, and event spaces, the division ensures seamless integration of presentation systems, live streaming, and video conferencing. Led by Ramiro Torres, with Hodari Jasper and the digital media team, this division provides technical assistance for lectures, guest speakers, and campus-wide events, ensuring clear communication and engagement across various platforms.</p>
+      </div>
+    </div>
+  </div>
+<!-- MODAL 4 -->
+<div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal4')">&times;</span>
+      <div class="text">
+        <h3>Data Center Hybrid & Cloud</h3>
+        <p>Responsible for the backbone of Lee College’s IT infrastructure, the Data Center & Hybrid/Cloud division ensures smooth operations for the Enterprise Data Center, campus-wide internet services, Microsoft updates, and hybrid-cloud environments. Supporting HYFlex Net for flexible digital learning experiences and maintaining telecommunications infrastructure, the division prioritizes scalability, performance, and security to ensure high availability and efficiency. Luis Hernandez, Richard Wilkins, Tam Hoang, Nathan Johnson, and Edgar Saenz keep critical services running to support students, faculty, and staff.</p>
+      </div>
+    </div>
+  </div>
+<!-- MODAL 5 -->
+<div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal5')">&times;</span>
+      <div class="text">
+        <h3>Enterprise Systems (ERP) Applications Integrations</h3>
+        <p>The Enterprise Systems & Applications Integrations division supports CRM/ERP data integrations, database administration, and institutional research reporting. Managing third-party databases, state/federal reporting requirements, and Blackboard Learn, the division ensures effective communication between campus systems for operational efficiency. This includes supporting financial, HR, payroll, and student information systems to keep institutional processes streamlined and compliant. Paula Lee and Jenise Gilbert specialize in supporting Blackboard Learn and its integrated applications, ensuring faculty and students have a seamless experience. Rene Salinas, Bryan Chuc, Sophie Winters, and additional programmers/analysts work together to maintain critical applications, enhance data accuracy, and develop system integrations that meet institutional needs.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = "block";
+        modal.setAttribute('aria-hidden', 'false');
+        const closeBtn = modal.querySelector(".close");
+        if (closeBtn) closeBtn.focus();
+      }
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = "none";
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) closeModal(modal.id);
+      });
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        document.querySelectorAll('.modal[aria-hidden="false"]').forEach(modal => closeModal(modal.id));
+      }
+    });
+  
+  </script>
+</body>
+</html>
