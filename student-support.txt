@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Support | IT Support</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+ 
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .breadcrumb-banner {
+      background-color: #ffb400;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      position: relative;
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0% 100%);
+    }
+
+    .breadcrumb-container {
+      background: #fff;
+      padding: 1rem 2rem;
+    }
+
+    .breadcrumb-container small {
+      color: #990000;
+      font-weight: bold;
+    }
+
+    .breadcrumb-banner h1 {
+      margin: 0;
+      color: #002244;
+      font-weight: bold;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #0056a6);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h2 {
+      margin: 0 0 1rem;
+    }
+    
+    
+    /*Section Header*/
+    section h4 {
+      color: #003366;
+  font-size: 2rem;
+  margin: 0 auto 1rem auto; /* centers the block */
+  text-align: center;
+  border-bottom: 2px solid #c90606;
+  display: table; /* makes it shrink to content and allow margin auto */
+  padding-bottom: 0.5rem;
+  
+  
+}
+
+    
+    /*info grid for mylc*/
+    
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .info-card h3 {
+      color: #003366;
+    }
+
+    .info-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .zoom-text {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
+    
+    
+    /*Map*/
+    
+    .contact-map {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .contact-map .contact-info {
+      flex: 1;
+      min-width: 250px;
+    }
+    .contact-map .map-embed {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    .contact-map .map-embed img {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .map-caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    
+    .lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  cursor: zoom-in;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 0.1px;
+  right: 20px;
+  background: white;
+  color: #990000;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.lightbox-close:hover {
+  background: #990000;
+  color: white;
+}
+
+
+
+
+ .support-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 2.5rem auto;
+}
+
+
+    .support-card {
+  flex: 1 1 250px; /* grow to 250px but allow wrapping */
+  max-width: 280px;
+  min-width: 200px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+    .support-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .support-card img {
+      width: 40px;
+      margin-bottom: 1rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .modal-content img {
+      max-width: 45%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .modal-content .text {
+      font-size: 1.1rem;
+      flex: 1;
+    }
+    
+    /*mylc*/
+    .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-icon {
+  transform: scale(2.05); /* Zooms the image by 25% */
+  margin-bottom: 1rem;
+}
+
+
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+    
+    /*Blackboard Help Accordian*/
+    .accordion {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-button {
+  background: #003366;
+  color: #fff;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.accordion-button:hover {
+  background: #002244;
+}
+
+.accordion-content {
+  display: none;
+  padding: 1rem;
+  background: #f9f9f9;
+  color: #333;
+  border-top: 1px solid #ccc;
+}
+
+    
+    /*Video Carousel*/
+   .carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.video-card {
+  flex: 0 0 auto;
+  width: 300px;
+  text-align: center;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 170px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.scroll-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.scroll-icon:hover {
+  transform: scale(1.1);
+}
+
+.scroll-icon.left {
+  margin-right: 0.5rem;
+}
+
+.scroll-icon.right {
+  margin-left: 0.5rem;
+}
+
+
+
+    @media (max-width: 600px) {
+      .support-card {
+        width: 100%;
+      }
+    }
+
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="breadcrumb-container">
+  <big>
+    <a href="index.html" style="color: #990000; text-decoration: none;">Home</a> › 
+    <a href="student-support.html" style="color: #990000; text-decoration: none;">Student IT Support</a>
+  </big>
+
+  <div class="breadcrumb-banner" style="max-width: fit-content; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+    <h1>Student IT Support</h1>
+  </div>
+</div>
+
+
+
+ <!-- Page Header -->
+  <header>
+    <h1>Student IT Support</h1>
+    <p>Get help with your account, access, and technology tools</p>
+  </header>
+
+  <main class="container">
+    
+    <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">MyLC HUB</h4>
+  <div class="info-grid">
+    
+  </div>
+</section>
+
+
+ <section class="info-grid">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+      <h3>Need Help?</h3>
+      <p><strong>Call:</strong> 281-425-MYLC (6952)</p>
+      <p><strong>Email:</strong> <a href="mailto:helpdesk@lee.edu">helpdesk@lee.edu</a></p>
+      <p><strong>Visit:</strong> Moler Hall (Building 12) Room 102</p>
+      <h3 style="margin-top: 2rem;">MyLC Help Desk Hours</h3>
+      <p><strong>Monday – Thursday:</strong> 7:30 a.m. – 5:15 p.m.</p>
+      <p><strong>Friday:</strong> 7:30 a.m. – 12:30 p.m.</p>
+      <p><strong>After Hours Support:</strong> 281.425.6952</p>
+    </div>
+    
+    
+    <div style="flex: 1 1 250px; text-align: center;">
+      <a href="#lightbox">
+        <img id="zoom-map" src="https://i.imgur.com/TGTwdVK.jpg" alt="Zoomed Map of Moler Hall at Lee College" />
+
+      </a>
+      <p class="zoom-text">Click to zoom in</p>
+    </div>
+    
+    <!-- Lightbox Modal for Campus Map -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img src="https://i.imgur.com/TGTwdVK.jpg" alt="Zoomed Map of Moler Hall at Lee College" />
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+
+    <!-- Support Cards -->
+    <div class="support-grid">
+  <div class="support-card" onclick="openModal('modal-onelogin')">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/lock.png" alt="OneLogin Icon"/>
+    <h3>OneLogin Account</h3>
+  </div>
+
+<div class="support-card" onclick="openModal('modal-mylc')">
+  <img src="https://i.imgur.com/qu3LEG2.png" alt="MyLC Icon" class="zoom-icon" />
+  <h3>MyLC Campus</h3>
+</div>
+
+
+  <div class="support-card" onclick="openModal('modal-mfa')">
+    <img src="https://img.icons8.com/ios-filled/48/c90606/checked-user-male.png" alt="Checked User Icon" />
+    <h3>Multi-Factor Authentication</h3>
+  </div>
+  
+  
+  <div class="support-card" onclick="openModal('modal-wifi')">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/wifi.png" alt="WiFi Icon"/>
+    <h3>WiFi Access</h3>
+  </div>
+
+  <div class="support-card" onclick="openModal('modal-m365')">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/microsoft-365.png" alt="Microsoft 365 Icon"/>
+    <h3>Microsoft 365</h3>
+  </div>
+
+
+  <div class="support-card" onclick="openModal('modal-blackboard')">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/blackboard-app.png" alt="Blackboard Icon"/>
+    <h3>Blackboard Help</h3>
+  </div>
+</div>
+
+    
+    
+  </main>
+
+  <!-- Modal 1 -->
+  <div id="modal-onelogin" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-onelogin')">&times;</span>
+      <img src="https://imgur.com/urRFtTb.png" alt="OneLogin Screenshot">
+      <div class="text">
+      <h2>OneLogin Account</h2>
+      <p>Your OneLogin account gives you access to Microsoft 365, Blackboard, and more campus services. Login using your student credentials: <strong>username@mylc.lee.edu</strong>. <br>If you're having trouble, reset your password using the "Forgot Password" link or contact the helpdesk.</p>
+    <p><strong>MyLC Helpdesk</strong>
+    <br>
+    helpdesk@lee.edu
+    <br>
+    281-425-6952</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div id="modal-mylc" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-mylc')">&times;</span>
+    <img src="https://imgur.com/qmaoIXR.png" alt="MyLC Campus button on the lee logins pate">
+      <div class="text">
+    <h2>MyLC Campus</h2>
+    <p>Use MyLC Campus to register for classes, view grades, access transcripts, and manage your student profile. Access it using your OneLogin credentials at <a href="https://mylccampus.lee.edu/psp/mylccampus/?cmd=login" target="_blank">myLC Campus</a>.</p>
+  </div>
+</div>
+</div>
+
+<!-- Modal 3 -->
+<div id="modal-mfa" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-mfa')">&times;</span>
+    <div class="text">
+    <h2>Multi-Factor Authentication (MFA)</h2>
+    <p>Secure your OneLogin account by enabling MFA when you log in for the first time. You'll be prompted to verify your login using a personal email. Contact the MyLC Helpdesk if you encounter any issues during setup.</p>
+  <p><strong>MyLC Helpdesk</strong>
+    <br>
+    helpdesk@lee.edu
+    <br>
+    281-425-6952</p>
+  
+  </div>
+</div>
+</div>
+
+<!-- Modal 4 -->
+  <div id="modal-wifi" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-wifi')">&times;</span>
+      <img src="https://imgur.com/AQedf9Z.png" alt="Campus WiFi login Screenshot">
+      <div class="text">
+      <h2>WiFi Access</h2>
+      <p>Connect to the campus WiFi by selecting <strong>Lee IWiFi</strong>. Log in using your student email and password. For help, contact:</p>
+    <p><strong>MyLC Helpdesk</strong>
+    <br>
+    helpdesk@lee.edu
+    <br>
+    281-425-6952</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 5 -->
+  <div id="modal-m365" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-m365')">&times;</span>
+      <img src="https://imgur.com/TY484qb.png" alt="Microsoft 365 button on the lee logins page">
+      <div class="text">
+      <h2>Microsoft 365</h2>
+      <p>All students receive free access to Microsoft 365, including Word, Excel, PowerPoint, and Outlook. Access it using your OneLogin Portal or by logging into <a href="https://www.office.com" target="_blank">office.com</a> with your student credentials.</p>
+    </div>
+  </div>
+   </div>
+  
+<!-- Modal 6 -->
+  <div id="modal-blackboard" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-blackboard')">&times;</span>
+      <div class="text">
+      <h2>Blackboard Help</h2>
+      <p>Blackboard is your online learning platform. Use it to access courses, submit assignments, and check grades. If you’re experiencing issues or want to learn more, click the button below to jump to the Blackboard Help section at the bottom of this page or contact: </p>
+        <p><strong>Paula Lee</strong> at plee@lee.edu or 281-425-6285</p>
+        <p><strong>Jenise Gilbert</strong> at jgilbert@lee.edu or 281-425-6215</p>
+    </div>
+  </div>
+</div>
+  
+  
+
+
+
+<section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">Blackboard Student</h4> 
+  
+  
+<section class="info-grid">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+      <h2 style="color: #003366;">Blackboard FAQs</h2>
+      
+      <section style="margin: 2rem auto; max-width: 900px;">
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-button">How do I log in to Blackboard?</button>
+      <div class="accordion-content">
+        <p>Visit the <a href="https://leecollege.onelogin.com/portal" target="_blank">OneLogin Portal</a>, and sign in using your student credentials and click the Blackboard tile.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-button">My courses are not showing up in Blackboard?</button>
+      <div class="accordion-content">
+        <p><strong>Courses may take time to appear while instructors complete setup.</strong></p>
+        <ul>
+    <li>Blackboard courses will be available starting the first day of the semester.
+        Until then, you will only have access to Library Resources and the Student Orientation course.</li>
+    <li>If you recently registered as a new student, your Blackboard account may take up to 24–48 hours to be fully activated after enrollment. If you do not see your course within two days of enrollment, please contact:
+        <p><strong>Paula Lee</strong> at plee@lee.edu or 281-425-6285</p>
+        <p><strong>Jenise Gilbert</strong> at jgilbert@lee.edu or 281-425-6215</p></li>
+    <li>If your course was visible and has since disappeared, please contact  <strong>Admissions (281-425-6393)</strong> for assistance.</li>
+    </ul>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-button">What is the Blackboard Student Orientation?</button>
+      <div class="accordion-content">
+        <p>All new online students are encouraged to complete the Blackboard Student Orientation course. This self-paced resource introduces key tools and navigation features to help you succeed in your online learning environment.</p>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <button class="accordion-button">Having technical issues?</button>
+      <div class="accordion-content">
+        <p><strong>Make sure you’re using a high-speed internet connection and an updated browser such as Chrome or Firefox.</strong></p>
+        <ul>
+    <li>Enable pop-ups in your browser settings</li>
+    <li>Regularly clear your cache and browsing history</li> </ul>
+    <p>Still need help? Contact:</p>
+    <p><strong>MyLC Help Desk</strong> at 281-425-6952</p>
+        <p><strong>Paula Lee</strong> at plee@lee.edu or 281-425-6285</p>
+        <p><strong>Jenise Gilbert</strong> at jgilbert@lee.edu or 281-425-6215</p>
+    
+      </div>
+    </div>
+    
+    
+    <div class="accordion-item">
+      <button class="accordion-button">Tips for a Smooth Experience</button>
+      <div class="accordion-content">
+        
+        <ul>
+    <li>For tests and assignments, use a wired connection when possible for better stability</li>
+    <li>Install the Blackboard app for faster access on mobile devices</li> 
+    <li>Save your work frequently — Blackboard logs out after 90 minutes of inactivity</li>
+    <li>Write long responses in Notepad or another editor, then paste into Blackboard to avoid losing progress or formatting issues</li>
+    <li>Submit your assignments early to avoid last-minute technical glitches</li>
+   </ul>
+      </div>
+    </div>
+    
+    
+     <div class="accordion-item">
+      <button class="accordion-button">After Hours Support</button>
+      <div class="accordion-content">
+         <ul>
+    <li>Need support after business hours? Click the “Help” icon inside Blackboard for 24/7 live chat and step-by-step help articles.</li>
+    <li>Looking for more? Visit our Blackboard Student Support page for additional resources.</li>
+     
+     </ul>
+     </div>
+    </div>
+    
+  </div>
+</section>
+
+    
+
+   <!-- Blackboard Ultra Video Carousel -->
+<section style="margin: 2rem auto; max-width: 1100px;">
+  <h2 style=" color: #003366;">Blackboard Ultra Tutorials</h2>
+  <div class="carousel-container">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/back--v1.png" class="scroll-icon left" onclick="scrollCarousel('ultra-carousel', -1)" alt="Scroll Left"/>
+    <div id="ultra-carousel" class="carousel">
+      <!-- Blackboard Ultra Video 1 -->
+      
+      <div class="video-card">
+        <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/ga62ByySsAc" 
+          title="Intro to Ultra" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Intro to Ultra</p>
+</div>
+ <!-- Blackboard Ultra Video 2 -->
+      </div>
+      <div class="video-card">
+        <iframe width="100%" height="200" 
+        src="https://www.youtube.com/embed/1ENC_PmS2FI" 
+        title="YouTube video" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+
+        <p>Edit Your Profile</p>
+      </div>
+       <!-- Blackboard Ultra Video 3 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/LnmTDnSU6-Q" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Types of Ultra Course Content</p>
+</div>
+
+<!-- Blackboard Ultra Video 4 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/6pYsU4xT3xE" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Notification Settings</p>
+</div>
+
+      <!-- Add more Ultra videos -->
+    </div>
+    <img src="https://img.icons8.com/ios-filled/50/c90606/forward--v1.png" class="scroll-icon right" onclick="scrollCarousel('ultra-carousel', 1)" alt="Scroll Right"/>
+  </div>
+</section>
+
+<!-- Blackboard Original Video Carousel -->
+<section style="margin: 2rem auto; max-width: 1100px;">
+  <h2 style=" color: #003366;">Blackboard Original Tutorials</h2>
+  <div class="carousel-container">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/back--v1.png" class="scroll-icon left" onclick="scrollCarousel('original-carousel', -1)" alt="Scroll Left"/>
+    <div id="original-carousel" class="carousel">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Original Intro" allowfullscreen></iframe>
+        <p>Intro to Original View</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Original Quizzes" allowfullscreen></iframe>
+        <p>Taking Quizzes</p>
+      </div>
+      
+       <!-- Blackboard Ultra Video 3 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/LnmTDnSU6-Q" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Types of Ultra Course Content</p>
+</div>
+
+<!-- Blackboard Ultra Video 4 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/6pYsU4xT3xE" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Notification Settings</p>
+</div>
+
+      <!-- Add more Original videos -->
+    </div>
+    <img src="https://img.icons8.com/ios-filled/50/c90606/forward--v1.png" class="scroll-icon right" onclick="scrollCarousel('original-carousel', 1)" alt="Scroll Right"/>
+  </div>
+</section>
+
+
+</section>
+
+
+  <!-- Modal Script -->
+ <script>
+  function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  };
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+      });
+    }
+  });
+
+  function closeLightbox() {
+    window.location.hash = "";
+  }
+
+  function scrollCarousel(id, direction) {
+    const container = document.getElementById(id);
+    const scrollAmount = 320;
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  document.querySelectorAll('.accordion-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    button.classList.toggle('active');
+
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+    } else {
+      content.style.display = 'block';
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
