@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyLC Helpdesk | IT Support</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+ 
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .breadcrumb-banner {
+      background-color: #ffb400;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      position: relative;
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0% 100%);
+    }
+
+    .breadcrumb-container {
+      background: #fff;
+      padding: 1rem 2rem;
+    }
+
+    .breadcrumb-container small {
+      color: #990000;
+      font-weight: bold;
+    }
+
+    .breadcrumb-banner h1 {
+      margin: 0;
+      color: #002244;
+      font-weight: bold;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #0056a6);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h2 {
+      margin: 0 0 1rem;
+    }
+    
+    
+    /*Section Header*/
+    section h4 {
+      color: #003366;
+  font-size: 2rem;
+  margin: 0 auto 1rem auto; /* centers the block */
+  text-align: center;
+  border-bottom: 2px solid #c90606;
+  display: table; /* makes it shrink to content and allow margin auto */
+  padding-bottom: 0.5rem;
+  
+  
+}
+
+    
+    /*info grid for mylc*/
+    
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .info-card h3 {
+      color: #003366;
+    }
+
+    .info-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .zoom-text {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
+    
+    
+    /*Map*/
+    
+    .contact-map {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .contact-map .contact-info {
+      flex: 1;
+      min-width: 250px;
+    }
+    .contact-map .map-embed {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    .contact-map .map-embed img {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .map-caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    
+    .lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  z-index: 2000;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.1);
+}
+
+.lightbox-close img {
+  width: 18px;
+  height: 18px;
+}
+
+
+
+
+
+
+ .support-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 2.5rem auto;
+}
+
+
+    .support-card {
+  flex: 1 1 250px; /* grow to 250px but allow wrapping */
+  max-width: 280px;
+  min-width: 200px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+    .support-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .support-card img {
+      width: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .support-card h3 {
+  min-height: 3rem; /* or adjust as needed */
+}
+
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+    .modal-content img {
+      max-width: 45%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .modal-content .text {
+      font-size: 1.1rem;
+      flex: 1;
+    }
+    
+    /*mylc*/
+    .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-icon {
+  transform: scale(2.05); /* Zooms the image by 25% */
+  margin-bottom: 1rem;
+}
+
+
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+    
+    /*FAQ Help Accordian*/
+   
+    .accordion-item {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+        font-size: 1.05rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #003366;
+    }
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+    .accordion-content {
+      display: none;
+      margin-top: 0.5rem;
+      color: #635e5e;
+    }
+.accordion-item {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-item.active {
+  background-color: #f0f8ff;
+  box-shadow: 0 0 6px rgba(0, 51, 102, 0.2);
+}
+
+.accordion-content {
+  display: none;
+  margin-top: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 3px solid #c90606;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+  
+
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="breadcrumb-container">
+  <big>
+    <a href="index.html" style="color: #990000; text-decoration: none;">Home</a> › 
+    <a href="student-support.html" style="color: #990000; text-decoration: none;">MyLC Helpdesk</a>
+  </big>
+
+  <div class="breadcrumb-banner" style="max-width: fit-content; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+    <h1>MyLC Helpdesk</h1>
+  </div>
+</div>
+
+
+
+ <!-- Page Header -->
+  <header>
+    <h1>MyLC Helpdesk Hub</h1>
+    <p>Your central resource for technical assistance at Lee College</p>
+  </header>
+
+  <main class="container">
+    
+    <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">MyLC HUB</h4>
+  <div class="info-grid">
+    
+  </div>
+</section>
+
+
+ <section class="info-grid">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+      <h3>Need Help?</h3>
+      <p><strong>Call:</strong> 281-425-MYLC (6952)</p>
+      <p><strong>Email:</strong> <a href="mailto:helpdesk@lee.edu">helpdesk@lee.edu</a></p>
+      <p><strong>Visit:</strong> Moler Hall (Building 12) Room 102</p>
+      <h3 style="margin-top: 2rem;">MyLC Help Desk Hours</h3>
+      <p><strong>Monday – Thursday:</strong> 7:30 a.m. – 5:15 p.m.</p>
+      <p><strong>Friday:</strong> 7:30 a.m. – 12:30 p.m.</p>
+      <p><strong>After Hours Support:</strong> 281.425.6952</p>
+    </div>
+    
+    
+    <div style="flex: 1 1 250px; text-align: center;">
+      <a href="#lightbox">
+        <img id="zoom-map" src="https://i.imgur.com/TGTwdVK.jpg" alt="Zoomed Map of Moler Hall at Lee College" />
+
+      </a>
+      <p class="zoom-text">Click to zoom in</p>
+    </div>
+    
+    <!-- Lightbox Modal for Campus Map -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+   <span class="lightbox-close" onclick="closeLightbox()">
+  <img src="https://img.icons8.com/?size=100&id=OZuepOQd0omj&format=png&color=000000" alt="Close" />
+</span>
+
+    <img src="https://i.imgur.com/TGTwdVK.jpg" alt="Zoomed Map of Moler Hall at Lee College" />
+  </div>
+</div>
+
+  </div>
+</section>
+
+<section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">Technology Guides & Resources</h4>
+  <div class="info-grid">
+    
+  </div>
+</section>
+
+<section class="support-grid">
+  <!-- OneLogin -->
+<div class="support-card" onclick="openModal('modal-onelogin')">
+  <img src="https://img.icons8.com/?size=100&id=lvld4CTgijWQ&format=png&color=c90606" alt="OneLogin Icon">
+  <h3>OneLogin User Guide</h3>
+  <p>A step-by-step guide for students and faculty to log in and access Microsoft 365, Blackboard, and campus tools.</p>
+</div>
+
+
+
+<!-- OneLogin User Guide Modal -->
+<div id="modal-onelogin" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-onelogin')">&times;</span>
+    <div class="text">
+      <h2>OneLogin User Guide</h2>
+      <p>This guide walks you through logging in for the first time and setting up authentication.</p>
+
+      <h3>First-Time Login</h3>
+      <ol>
+        <li>Go to <a href="https://leecollege.onelogin.com" target="_blank">leecollege.onelogin.com</a>.</li>
+        <li>Enter your Lee College email address and click <strong>Continue</strong>.</li>
+        <li>Enter your network password and click <strong>Continue</strong>.</li>
+        <li>You'll be prompted to set up 2-Factor Authentication. Click <strong>Begin Setup</strong>.</li>
+      </ol>
+
+      <h3>Authentication Options</h3>
+      <ul>
+        <li><strong>OneLogin Protect App:</strong> Recommended. Scan the QR code using the app.</li>
+        <li><strong>SMS Text:</strong> Receive a code via text.</li>
+        <li><strong>Authenticator App:</strong> Use another preferred app like Google Authenticator.</li>
+        <li><em>Email option coming soon.</em></li>
+      </ul>
+
+      <h3>After Setup</h3>
+      <ul>
+        <li>Log in to apps like Blackboard, Email, or MyLC Campus through the OneLogin dashboard.</li>
+        <li>You may not see all apps at first — they’ll appear as integrations are completed.</li>
+        <li>To reset your password later, click your name at the top right and select "Profile."</li>
+      </ul>
+
+
+      <p>Need more help? Visit <a href="http://www.lee.edu/logins" target="_blank">www.lee.edu/logins</a>.</p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: #990000;">
+        <a href="#" style="text-decoration: underline; color: #990000;">Click here to download full guide (coming soon!)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Password Reset -->
+<div class="support-card" onclick="openModal('modal-password')">
+  <img src="https://img.icons8.com/?size=100&id=QY9gO0BEfsxm&format=png&color=c90606" alt="Password Reset Icon">
+  <h3>Password Reset Guide</h3>
+  <p>This guide walks you through resetting your Lee College password if you’re locked out or can’t log in.</p>
+</div>
+
+
+
+<!-- Password Reset Guide Modal -->
+<div id="modal-password" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-password')">&times;</span>
+    <div class="text">
+      <h2>Password Reset Guide</h2>
+      <p>This guide explains what to do if you've forgotten your Lee College password.</p>
+
+      <h3>Forgot Your Password?</h3>
+      <ul>
+        <li>Click the <strong>"Forgot Password"</strong> link on the OneLogin login screen.</li>
+        <li>If you've already set up your authentication factors, you'll be prompted to verify your identity using one of them.</li>
+        <li>If not, you can request a one-time authentication code via text message or receive a password reset link by email (sent to your email on file).</li>
+      </ul>
+
+      <h3>Need Help?</h3>
+      
+      <p><strong>If you're unable to use these recovery methods or you have been locked out, contact the MyLC Help Desk for immediate assistance.</strong></p>
+      <p><strong>Phone:</strong> 281-425-6952<br>
+         <strong>Email:</strong> helpdesk@lee.edu</p>
+      <p>Our team can help reset your password and ensure you're set up for the next time you log in.</p>
+
+      <p style="margin-top: 1.5rem; font-style: italic; color: #990000;">
+        <a href="#" style="text-decoration: underline; color: #990000;">Click here to download full guide (coming soon)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Clear Cache -->
+<div class="support-card" onclick="openModal('modal-cache')">
+  <img src="https://img.icons8.com/?size=100&id=38543&format=png&color=c90606" alt="Cache Icon">
+  <h3>Clearing Browser Cache Guide</h3>
+  <p>A troubleshooting guide to help students and faculty fix loading or login issues by clearing browser cache.</p>
+</div>
+
+
+<!-- Clearing Browser Cache Guide Modal -->
+<div id="modal-cache" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-cache')">&times;</span>
+    <div class="text">
+      <h2>Clearing Browser Cache Guide</h2>
+      <p>This guide will help you clear your browser cache to resolve common loading or access issues when using Blackboard or other campus tools.</p>
+      <p><strong>Recommended Browsers:</strong> For best results, use <strong>Chrome</strong> or <strong>Firefox</strong> on a computer.</p>
+
+      <h3>Chrome</h3>
+      <img src="https://img.icons8.com/?size=100&id=112161&format=png&color=000000.png" alt="Chrome" style="max-width: 100%; margin-bottom: 1rem;">
+      <ol>
+        <li>Click the three-dot menu at the top-right of your browser window.</li>
+        <li>Select <strong>Delete browsing data</strong>.</li>
+        <li>Choose a time range such as <strong>All time</strong>.</li>
+        <li>Check only <strong>Cached images and files</strong>.</li>
+        <li>Click <strong>Delete data</strong>.</li>
+        <li>Refresh your browser and return to page to continue.</li>
+      </ol>
+      
+
+      <h3>Firefox</h3>
+      <img src="https://img.icons8.com/clouds/100/000000/firefox.png" alt="Firefox" style="max-width: 100%; margin-bottom: 1rem;">
+      <ol>
+        <li>Click the menu button at the top-right and select <strong>Settings</strong>.</li>
+        <li>Go to <strong>Privacy & Security</strong> in the left menu.</li>
+        <li>Click <strong>Clear Data</strong> under the Cookies and Site Data section.</li>
+        <li>Check only <strong>Cached Web Content</strong>.</li>
+        <li>Click <strong>Clear</strong> and then refresh your browser.</li>
+      </ol>
+      
+
+      <h3>Safari (Mac)</h3>
+      <img src="https://img.icons8.com/clouds/100/000000/safari--v1.png" alt="Safari" style="max-width: 100%; margin-bottom: 1rem;">
+      <ol>
+        <li>Click <strong>Safari</strong> in the top menu bar and select <strong>Preferences</strong>.</li>
+        <li>Go to the <strong>Privacy</strong> tab.</li>
+        <li>Click <strong>Manage Website Data</strong>.</li>
+        <li>Select the websites or choose <strong>Remove All</strong>.</li>
+        <li>Click <strong>Done</strong>, then restart Safari and try Blackboard again.</li>
+      </ol>
+      
+      
+      <p><strong>If you are still experiencing issues, contact the MyLC Help Desk for further assistance:</strong><br>
+        Email: helpdesk@lee.edu<br>
+        Phone: 281-425-6952
+      </p>
+
+      <p style="margin-top: 1.5rem; font-style: italic; color: #990000;">
+        <a href="#" style="text-decoration: underline; color: #990000;">Click here to download full guide (coming soon)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Respondus LockDown Browser -->
+<div class="support-card" onclick="openModal('modal-respondus')">
+  <img src="https://img.icons8.com/?size=100&id=93&format=png&color=c90606" alt="Respondus Icon">
+  <h3>Respondus LockDown Browser Guide</h3>
+  <p>Learn how to download, install, and use Respondus for secure online testing in Blackboard.</p>
+</div>
+
+
+<!-- Respondus LockDown Browser Guide Modal -->
+<div id="modal-respondus" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-respondus')">&times;</span>
+    <div class="text">
+      <h2>Respondus LockDown Browser Guide</h2>
+      <p>Lee College instructors may require to use the Respondus LockDown Browser (RLB) for quizzes and tests in Blackboard. This secure browser prevents copying, printing, or accessing other materials during an exam.</p>
+
+      <h3>Download Respondus</h3>
+      <p>To download the LockDown Browser, use the link below for Lee College students:</p>
+      <p>
+        <a href="https://download.respondus.com/lockdown/download.php?ostype=1&id=986436882" target="_blank" style="text-decoration: underline; color: #003366; font-weight: bold;">
+          Click here to download Respondus LockDown Browser
+        </a>
+      </p>
+
+      <h3>How to Install</h3>
+      <ol>
+        <li>Click the link above and select <strong>Install Now</strong>.</li>
+        <li>Once downloaded, double-click the file and follow the installation instructions.</li>
+        <li>Look for the “LockDown Browser” shortcut on your desktop.</li>
+      </ol>
+
+      <h3>Taking a Test with RLB</h3>
+      <ol>
+        <li>Launch the LockDown Browser shortcut.</li>
+        <li>Log into Blackboard and navigate to your course.</li>
+        <li>Go to the content area where the test is located.</li>
+        <li>Click the assessment link and read all instructions carefully.</li>
+        <li>Click <strong>Begin</strong> to start the test. Keep track of the timer and save your answers as you go.</li>
+        <li>Click <strong>Save and Submit</strong> when you’re done.</li>
+      </ol>
+
+      <h3>Taking a Monitored Test</h3>
+      <p>If your instructor enables monitoring:</p>
+      <ul>
+        <li>Make sure you have a webcam and a stable (preferably wired) internet connection.</li>
+        <li>You’ll be asked to verify your ID and complete a checklist before the test begins.</li>
+        <li>Look for “(**Webcam**)” in the test title to identify monitored exams.</li>
+        <li>After completing the checklist, your test will begin just like a regular RLB exam.</li>
+      </ul>
+
+      <p><strong>Tip:</strong> Avoid using public Wi-Fi during monitored exams. A wired connection is recommended.</p>
+
+      <p><strong>If you are still experiencing issues, contact the MyLC Help Desk:</strong><br>
+        Email: helpdesk@lee.edu<br>
+        Phone: 281-425-6952
+      </p>
+
+      <p style="margin-top: 1.5rem; font-style: italic; color: #990000;">
+        <a href="#" style="text-decoration: underline; color: #990000;">Click here to download full guide (coming soon)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Microsoft 365 -->
+<div class="support-card" onclick="openModal('modal-m365')">
+  <img src="https://img.icons8.com/ios-filled/50/c90606/microsoft-365.png" alt="Microsoft 365 Icon">
+  <h3>Microsoft 365 Guide</h3>
+  <p>A complete guide for accessing Microsoft Word, Excel, Outlook, and OneDrive using your school account.</p>
+</div>
+
+
+
+<!-- Microsoft 365 / OneDrive Guide Modal -->
+<div id="modal-m365" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-m365')">&times;</span>
+    <div class="text">
+      <h2>Microsoft 365 & OneDrive Guide</h2>
+      <p>As a Lee College student or faculty member, you have full access to Microsoft 365 apps — including Outlook, Word, Excel, PowerPoint, and OneDrive — from any device.</p>
+
+      <h3> How to Access Microsoft 365 Apps</h3>
+      <ol>
+        <li>Go to <a href="https://www.lee.edu/" target="_blank">www.lee.edu</a>.</li>
+        <li>Click the <strong>Logins</strong> option in the top-right menu.</li>
+        <li>Select <strong>Office 365</strong> from the list of login services.</li>
+        <li>Click the <strong>Office 365 Online Apps</strong> button.</li>
+        <li>Enter your Lee College email address and click <strong>Next</strong>.</li>
+        <li>Enter your Lee College network password and click <strong>Sign In</strong>.</li>
+        <li>Choose whether to stay signed in (recommended only on personal computers).</li>
+        <li>You will be directed to the Microsoft 365 dashboard, where you can access apps like:
+          <ul>
+            <li><strong>Outlook</strong> – for your student email</li>
+            <li><strong>Word</strong>, <strong>Excel</strong>, <strong>PowerPoint</strong> – for school assignments</li>
+            <li><strong>OneDrive</strong> – for secure file storage</li>
+            <li><strong>Teams</strong>, <strong>OneNote</strong>, and more</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p>Once you're signed in, you can launch any app directly from the web, or choose to install the desktop version on your device.</p>
+
+      <h3> What Is OneDrive?</h3>
+      <p>OneDrive is your personal cloud storage space — like a digital backpack. You can save and organize all your school files, photos, and documents, and access them from any device, anywhere. You can also collaborate in real time with classmates and teachers.</p>
+
+<h3>How to Access OneDrive</h3>
+      <ol>
+        <li>Go to <a href="https://www.lee.edu/" target="_blank">www.lee.edu</a>.</li>
+        <li>Click <strong>Logins</strong> in the top-right menu.</li>
+        <li>Choose <strong>Office 365</strong> from the login options.</li>
+        <li>Select <strong>Office 365 Online Apps</strong>.</li>
+        <li>Enter your Lee College email, then click <strong>Next</strong>.</li>
+        <li>Enter your network password and click <strong>Sign In</strong>.</li>
+        <li>Choose whether to stay signed in (recommended only on personal computers).</li>
+        <li>Click the <strong>OneDrive</strong> icon to access your files. If it's not visible, use the search bar to find it.</li>
+      </ol>
+
+      <h3> Creating Folders</h3>
+      <p>After signing in:</p>
+      <ol>
+        <li>Click <strong>+ Add New</strong> in OneDrive.</li>
+        <li>Select <strong>Folder</strong>, name it, and click <strong>Create</strong>.</li>
+      </ol>
+
+    
+
+      <h3> Uploading Files</h3>
+      <p><strong>Method 1: Drag and Drop</strong></p>
+      <ol>
+        <li>Open OneDrive in a window and your files in another.</li>
+        <li>Select and drag files into OneDrive. The upload will start automatically.</li>
+      </ol>
+      <p><strong>Method 2: Upload Button</strong></p>
+      <ol>
+        <li>Click <strong>Upload</strong> in OneDrive.</li>
+        <li>Select <strong>Files</strong> or <strong>Folder</strong>, choose what to upload, then click <strong>Open</strong>.</li>
+      </ol>
+
+      <h3> Sharing Files</h3>
+      <ol>
+        <li>Hover over the file/folder you want to share and click the <strong>Share</strong> icon.</li>
+        <li>In the pop-up window, select your sharing settings:
+          <ul>
+            <li><strong>People in Lee College with the link</strong> (recommended).</li>
+            <li><strong>Specific people</strong> to limit access outside Lee College.</li>
+          </ul>
+        </li>
+        <li>Choose whether users can <strong>Edit</strong> or only <strong>View</strong>.</li>
+        <li>You can also prevent downloads by unchecking editing and choosing block download.</li>
+        <li>Click <strong>Apply</strong>, then enter email addresses or use <strong>Copy Link</strong> to share.</li>
+      </ol>
+
+      <p><strong>If you are still experiencing issues, contact the MyLC Help Desk:</strong><br>
+        Email: helpdesk@lee.edu<br>
+        Phone: 281-425-6952
+      </p>
+
+      <p style="margin-top: 1.5rem; font-style: italic; color: #990000;">
+        <a href="#" style="text-decoration: underline; color: #990000;">Click here to download full guide (coming soon)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Web Conferencing -->
+<div class="support-card" onclick="openModal('modal-webconf')">
+  <img src="https://img.icons8.com/?size=100&id=yXfHuwrmkCoM&format=png&color=c90606" alt="Web Conferencing Icon">
+  <h3>Web Conferencing Guide</h3>
+  <p>This guide explains how to use Webex and Microsoft Teams for attending or hosting online classes.</p>
+</div>
+
+
+
+
+
+<!-- Web Conferencing Guide Modal -->
+<div id="modal-webconf" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-webconf')">&times;</span>
+    <div class="text">
+      <h2>Web Conferencing Guide</h2>
+      <p>Lee College supports two main tools for attending live classes or virtual meetings: <strong>WebEx</strong> and <strong>Microsoft Teams</strong>. These tools are accessible through your Microsoft 365 account and allow you to attend lectures, participate in group assignments, or present assignments online.</p>
+
+      
+      <h4> Using WebEx</h4>
+      <p>WebEx is used for live online classes or instructor-led presentations. Your instructor will provide a WebEx link inside your Blackboard course.</p>
+
+<h3> Accessing WebEx through OneLogin</h3>
+<ol>
+  <li>Go to the <a href="https://leecollege.onelogin.com/" target="_blank">Lee College OneLogin portal</a>.</li>
+  <li>Log in with your Lee College email and password.</li>
+  <li>On the dashboard, select the <strong>WebEx</strong> app icon.</li>
+  <li>You will be taken directly to the WebEx platform where you can join or host meetings in your browser — no download needed.</li>
+</ol>
+<p>If your instructor has scheduled a session, you may also see the WebEx link inside your Blackboard course under <strong>Course Content</strong>.</p>
+
+      <h3>How to Join a WebEx Session</h3>
+      <ol>
+        <li>Navigate to your Blackboard course and select the <strong>Course Content</strong> area.</li>
+        <li>Click the <strong>WebEx</strong> link provided by your instructor.</li>
+        <li>Click <strong>Join</strong> for the session you are attending.</li>
+        <li>If prompted, choose to <strong>Open in WebEx App</strong> (recommended) or <strong>Join from browser</strong>.</li>
+      </ol>
+
+      <h3>Downloading WebEx</h3>
+      <p>Although you can use WebEx in your browser through OneLogin, installing the app gives you better performance and access to all features.</p>
+      <ol>
+        <li>Visit the <a href="https://www.webex.com/downloads.html" target="_blank">Cisco WebEx Download Page</a>.</li>
+        <li>Select the correct download for your computer or mobile device.</li>
+        <li>Install and open the WebEx application.</li>
+      </ol>
+
+      <h3>WebEx Layout Overview</h3>
+      <ul>
+        <li><strong>Top:</strong> Main control panel</li>
+        <li><strong>Top right:</strong> Switch view controls</li>
+        <li><strong>Right panel:</strong> Participants and chat tools</li>
+        <li><strong>Bottom:</strong> Mute/unmute, start video, share screen or content</li>
+      </ul>
+
+      <h3>Chatting During a WebEx Session</h3>
+      <ol>
+        <li>Select the <strong>Chat</strong> button or expand the chat panel.</li>
+        <li>Choose <strong>Everyone</strong> to message all participants.</li>
+        <li>Type your message and press <strong>Enter</strong> to send.</li>
+      </ol>
+
+      <h3>Sharing Your Screen or Files</h3>
+      <ol>
+        <li>Click the <strong>Share</strong> button at the bottom of the session window.</li>
+        <li>Select the application or screen you want to share.</li>
+        <li>For videos, choose <em>“Optimize for motion and video”</em> before sharing.</li>
+      </ol>
+
+      <h3>Whiteboard and File Sharing</h3>
+      <ol>
+        <li>Click <strong>Share</strong>, then scroll to find <strong>Whiteboard</strong> or <strong>File</strong>.</li>
+        <li>Use Whiteboard to draw or annotate content during your session.</li>
+      </ol>
+
+      <h3>Stop Sharing</h3>
+      <p>When finished, click the red <strong>Stop Sharing</strong> button at the top of your shared screen.</p>
+
+      <h3> Additional Features for Instructors</h3>
+
+      <h3>Breakout Groups</h3>
+      <p>Your instructor may assign you to breakout rooms for group activities. You'll have presenter controls and can share content with your group. Once the session ends, you’ll return to the main room automatically.</p>
+
+      <h3>Polls</h3>
+      <p>Instructors may launch polls during class. When active, polls appear on your screen, and results may be shared afterward. Look for the poll icon near the raise-hand button.</p>
+
+
+
+<h4> Accessing Microsoft Teams</h4>
+      <ol>
+        <li>Go to <a href="https://www.office.com" target="_blank">www.office.com</a>.</li>
+        <li>Sign in with your Lee College email and password.</li>
+        <li>Select the <strong>Teams</strong> icon from the Microsoft 365 app launcher.</li>
+        <li>You can also download the Microsoft Teams desktop or mobile app for additional features.</li>
+      </ol>
+      <p>Use Teams to message classmates, attend online meetings, or collaborate on shared documents.</p>
+
+
+      <p><strong>If you are still experiencing issues, contact the MyLC Help Desk:</strong><br>
+        Email: helpdesk@lee.edu<br>
+        Phone: 281-425-6952
+      </p>
+
+      <p style="margin-top: 1.5rem; font-style: italic; color: #990000;">
+        <a href="#" style="text-decoration: underline; color: #990000;">Click here to download full guide (coming soon)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+<section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">Frequently Asked Questions</h4>
+  <div class="info-grid">
+    
+  </div>
+</section>
+
+
+ <section class="info-grid">
+   <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+<div class="container">
+    
+
+    <div class="accordion-item" onclick="toggleAccordion(this)"> 
+      What is OneLogin?
+      <div class="accordion-content"><p>OneLogin is Lee College’s centralized login portal for accessing most campus resources, including Blackboard, email, Microsoft applications, and more (excluding MyLC).</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      I’m enrolled in classes but still don’t have access to OneLogin. When will it be available?
+      <div class="accordion-content"><p>OneLogin accounts are typically created within 36–48 hours after enrollment. If you still do not have access after 48 hours or have an urgent need, please contact the help desk by phone for immediate assistance.</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      I no longer receive Multi-Factor Authentication (MFA) codes on my device. How can I resolve this?
+      <div class="accordion-content"><p>Please contact the Help Desk by phone. We’ll help you reset your MFA and set up a new authentication method.</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      My login credentials aren’t working and I can’t reset my password. What should I do?
+      <div class="accordion-content"><p>Call the help desk or visit us in person. We’ll verify your information and help you regain access.</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      I need help installing Microsoft Office on my personal computer. How can I get assistance?
+      <div class="accordion-content"><p>We recommend visiting us in person for hands-on support. While phone assistance is available, in-person help ensures we can assist you more effectively with installation.</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      My myLC Campus password isn’t working. What should I try?
+      <div class="accordion-content"><p>Try the default password given to you when you first enrolled. If that doesn’t work, your account may be locked. Contact the help desk to unlock or reset your account.</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      I can't access my eBooks in Blackboard. What should I do?
+      <div class="accordion-content"><p>Your instructor should have posted instructions on accessing your eBook in the course. Make sure you have created an account on the publisher website using your Lee College credentials. If you are still experiencing issues, contact the help desk and we’ll connect you with our on-campus Blackboard Specialists for further support.</p></div>
+    </div>
+
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      I’m having trouble accessing course-related websites on my Apple device. What can I do to resolve this issue?
+      <div class="accordion-content"><p>Safari can have compatibility issues with certain websites. We recommend installing Google Chrome or Mozilla Firefox for improved access to all course-related websites.</p></div>
+    </div>
+  </div>
+</section>
+   
+ <script>
+  
+  function closeLightbox() {
+    window.location.hash = "";
+  }
+
+  function toggleAccordion(element) {
+      element.classList.toggle('active');
+    }
+    
+     function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  };
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+      });
+    }
+  });
+  
+  function openModal(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+window.onclick = function(event) {
+  document.querySelectorAll('.modal').forEach(modal => {
+    if (event.target === modal) modal.style.display = 'none';
+  });
+};
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+  }
+});
+
+function toggleAccordion(current) {
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    if (item !== current) item.classList.remove('active');
+  });
+  current.classList.toggle('active');
+}
+
+
+
+</script>
+
+</body>
+</html>

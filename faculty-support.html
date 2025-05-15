@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty IT Support | IT Support</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    .breadcrumb-banner {
+      background-color: #ffb400;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      position: relative;
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0% 100%);
+    }
+    .breadcrumb-container {
+      background: #fff;
+      padding: 1rem 2rem;
+    }
+    .breadcrumb-container small {
+      color: #990000;
+      font-weight: bold;
+    }
+    .breadcrumb-banner h1 {
+      margin: 0;
+      color: #002244;
+      font-weight: bold;
+    }
+    header {
+      background: linear-gradient(to right, #003366, #0056a6);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h2 {
+      margin: 0 0 1rem;
+    }
+    section h4 {
+      color: #003366;
+      font-size: 2rem;
+      margin: 0 auto 1rem auto;
+      text-align: center;
+      border-bottom: 2px solid #c90606;
+      display: table;
+      padding-bottom: 0.5rem;
+    }
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .info-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .info-card h3 {
+      color: #003366;
+    }
+    .support-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 2.5rem auto;
+    }
+    .support-card {
+      flex: 1 1 250px;
+      max-width: 280px;
+      min-width: 200px;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .support-card:hover {
+      transform: translateY(-5px);
+    }
+    .support-card img {
+      width: 40px;
+      margin-bottom: 1rem;
+    }
+    .support-card h3 {
+      min-height: 3rem;
+    }
+    .accordion-item {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1.05rem;
+      display: block;
+      color: #003366;
+    }
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+    .accordion-content {
+      display: none;
+      margin-top: 0.5rem;
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding-left: 1rem;
+      border-left: 3px solid #c90606;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="breadcrumb-container">
+    <big>
+      <a href="index.html" style="color: #990000; text-decoration: none;">Home</a> › 
+      <a href="#" style="color: #990000; text-decoration: none;">Faculty IT Support</a>
+    </big>
+    <div class="breadcrumb-banner" style="max-width: fit-content; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+      <h1>Faculty IT Support</h1>
+    </div>
+  </div>
+  <header>
+    <h1>Faculty Technology Hub</h1>
+    <p>Resources to support your teaching, communication, and course management</p>
+  </header>
+  <main class="container">
+    <section style="margin-top: 3rem;">
+      <h4>Technology Guides & Tools for Faculty</h4>
+      <div class="support-grid">
+        <div class="support-card">
+          <img src="https://img.icons8.com/?size=100&id=lvld4CTgijWQ&format=png&color=c90606" alt="OneLogin">
+          <h3>OneLogin Setup</h3>
+          <p>Learn how to sign in and access Office 365, Blackboard, Teams, and other teaching platforms.</p>
+        </div>
+        <div class="support-card">
+          <img src="https://img.icons8.com/?size=100&id=QY9gO0BEfsxm&format=png&color=c90606" alt="Password Reset">
+          <h3>Password Help</h3>
+          <p>Instructions for resetting your password and recovering access to your faculty account.</p>
+        </div>
+        <div class="support-card">
+          <img src="https://img.icons8.com/?size=100&id=38543&format=png&color=c90606" alt="Clear Cache">
+          <h3>Clear Cache</h3>
+          <p>Fix access or login issues by clearing your browser cache on Chrome, Firefox, or Safari.</p>
+        </div>
+        <div class="support-card">
+          <img src="https://img.icons8.com/?size=100&id=93&format=png&color=c90606" alt="Respondus">
+          <h3>Respondus for Faculty</h3>
+          <p>Steps to download, configure, and assign secure online exams using Respondus tools.</p>
+        </div>
+        <div class="support-card">
+          <img src="https://img.icons8.com/ios-filled/50/c90606/microsoft-365.png" alt="Microsoft 365">
+          <h3>Microsoft 365 & OneDrive</h3>
+          <p>Access Word, Excel, Teams, Outlook and manage class files via your school account.</p>
+        </div>
+        <div class="support-card">
+          <img src="https://img.icons8.com/?size=100&id=yXfHuwrmkCoM&format=png&color=c90606" alt="Web Conferencing">
+          <h3>Using Webex & Teams</h3>
+          <p>Host office hours or meetings with students using Webex or Microsoft Teams.</p>
+        </div>
+      </div>
+    </section>
+    <section style="margin-top: 3rem;">
+      <h4>Blackboard Faculty Tutorials</h4>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Creating and Organizing Content</h3>
+          <p>Learn how to upload course materials, create modules, and link resources in Blackboard Ultra.</p>
+        </div>
+        <div class="info-card">
+          <h3>Using the Grade Center</h3>
+          <p>Step-by-step guide to entering grades, managing columns, and customizing your grading schema.</p>
+        </div>
+        <div class="info-card">
+          <h3>Posting Announcements</h3>
+          <p>Instructions to send timely updates to your students using the Announcements tool.</p>
+        </div>
+        <div class="info-card">
+          <h3>Creating and Managing Tests</h3>
+          <p>How to create tests and pools, apply settings like timers, and monitor submissions.</p>
+        </div>
+        <div class="info-card">
+          <h3>Discussion Boards</h3>
+          <p>Guide to facilitating online discussions, grading participation, and setting expectations.</p>
+        </div>
+      </div>
+    </section>
+    <section style="margin-top: 3rem;">
+      <h4>Faculty FAQs</h4>
+      <div class="info-card" style="max-width: 800px; margin: auto;">
+        <div class="accordion-item" onclick="toggleAccordion(this)">I can’t access my Blackboard course. What should I do?
+          <div class="accordion-content">Make sure your course has been made available. If the course is not visible, contact your division or Blackboard support.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">How do I copy content from a previous semester?
+          <div class="accordion-content">Use the "Copy Content" tool in Ultra View or contact support for a guided walkthrough if using Classic View.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">Students report they can't see assignments. Why?
+          <div class="accordion-content">Check item visibility settings, release conditions, and due dates to ensure the assignment is available.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">Can I schedule announcements in advance?
+          <div class="accordion-content">Yes. In Blackboard Ultra, you can create announcements and schedule their release under the announcement settings.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">Where can I find more help with Blackboard?
+          <div class="accordion-content">Visit <a href="https://help.blackboard.com" target="_blank">help.blackboard.com</a> or contact your institution’s instructional support team.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    function toggleAccordion(current) {
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        if (item !== current) item.classList.remove('active');
+      });
+      current.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
