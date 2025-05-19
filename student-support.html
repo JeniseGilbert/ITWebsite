@@ -623,6 +623,8 @@
       <p>Blackboard is your online learning platform. Use it to access courses, submit assignments, and check grades. If you’re experiencing issues or want to learn more, click the button below to jump to the Blackboard Help section at the bottom of this page or contact: </p>
         <p><strong>Paula Lee</strong> at plee@lee.edu or 281-425-6285</p>
         <p><strong>Jenise Gilbert</strong> at jgilbert@lee.edu or 281-425-6215</p>
+        
+        
     </div>
   </div>
 </div>
@@ -640,7 +642,11 @@
       
 
 
-    
+     <h2 style="color: #003865;">Blackboard System Status</h2>
+  <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+    <div id="status-indicator" style="width: 15px; height: 15px; background-color: #28a745; border-radius: 50%;"></div>
+    <span id="status-label" style="font-weight: bold; color: #28a745;">Operating Normally</span>
+  </div>
  
 
     
@@ -869,7 +875,28 @@ function toggleAccordion(element) {
   element.classList.toggle('active');
 }
 
+ function updateStatus(state) {
+    const indicator = document.getElementById('status-indicator');
+    const label = document.getElementById('status-label');
 
+    const statuses = {
+      normal: { text: 'Operating Normally', color: '#28a745' },
+      degraded: { text: 'Degraded Performance', color: '#ffc107' },
+      partial: { text: 'Partial Outage', color: '#fd7e14' },
+      outage: { text: 'Outage – Not Functional', color: '#dc3545' }
+    };
+
+    const current = statuses[state];
+    label.textContent = current.text;
+    label.style.color = current.color;
+    indicator.style.backgroundColor = current.color;
+  }
+
+  // Example test use:
+   //updateStatus('normal'); // switch to normal Outage
+   //updateStatus('degraded'); // switch to degraded Outage
+   //updateStatus('partial'); // switch to Partial Outage
+   //updateStatus('outage'); // switch to outage Outage
 </script>
 
 </body>
