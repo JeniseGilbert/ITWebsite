@@ -128,6 +128,250 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
+    
+     
+    /*Video Carousel*/
+   .carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.video-card {
+  flex: 0 0 auto;
+  width: 300px;
+  text-align: center;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 170px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.scroll-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.scroll-icon:hover {
+  transform: scale(1.1);
+}
+
+.scroll-icon.left {
+  margin-right: 0.5rem;
+}
+
+.scroll-icon.right {
+  margin-left: 0.5rem;
+}
+
+
+
+    @media (max-width: 600px) {
+      .support-card {
+        width: 100%;
+      }
+    }
+    
+     /*Blackboard Help Accordian*/
+   .accordion-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+  color: #003366;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-item.active {
+  background-color: #f0f8ff;
+  box-shadow: 0 0 6px rgba(0, 51, 102, 0.2);
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+.accordion-content {
+  display: none;
+  margin-top: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 3px solid #c90606;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/*info grid for mylc*/
+    
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .info-card h3 {
+      color: #003366;
+    }
+
+    .info-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .zoom-text {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
+    
+    
+    /*Map*/
+    
+    .contact-map {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .contact-map .contact-info {
+      flex: 1;
+      min-width: 250px;
+    }
+    .contact-map .map-embed {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    .contact-map .map-embed img {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .map-caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    
+    .lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  cursor: default
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  z-index: 2000;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.1);
+}
+
+.lightbox-close img {
+  width: 18px;
+  height: 18px;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -144,6 +388,51 @@
     <h1>Faculty Technology Hub</h1>
     <p>Resources to support your teaching, communication, and course management</p>
   </header>
+  
+  <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">MyLC Helpdesk</h4>
+  <div class="info-grid">
+    
+  </div>
+</section>
+  
+ <section class="info-grid">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+      <h3>Need Help?</h3>
+      <p><strong>Call:</strong> 281-425-MYLC (6952)</p>
+      <p><strong>Email:</strong> <a href="mailto:helpdesk@lee.edu">helpdesk@lee.edu</a></p>
+      <p><strong>Visit:</strong> Moler Hall (Building 12) Room 102</p>
+      <h3 style="margin-top: 2rem;">MyLC Help Desk Hours</h3>
+      <p><strong>Monday – Thursday:</strong> 7:30 a.m. – 5:15 p.m.</p>
+      <p><strong>Friday:</strong> 7:30 a.m. – 12:30 p.m.</p>
+      <p><strong>After Hours Support:</strong> 281.425.6952</p>
+    </div>
+    
+    
+    <div style="flex: 1 1 250px; text-align: center;">
+      <a href="#lightbox">
+        <img id="zoom-map" src="https://i.imgur.com/TGTwdVK.jpg" alt="Zoomed Map of Moler Hall at Lee College" />
+
+      </a>
+      <p class="zoom-text">Click to zoom in</p>
+    </div>
+    
+    <!-- Lightbox Modal for Campus Map -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" onclick="closeLightbox()">
+  <img src="https://img.icons8.com/?size=100&id=OZuepOQd0omj&format=png&color=000000" alt="Close" />
+</span>
+
+    <img src="https://i.imgur.com/TGTwdVK.jpg" alt="Zoomed Map of Moler Hall at Lee College" />
+  </div>
+</div>
+
+  </div>
+</section>
+
+
   <main class="container">
     <section style="margin-top: 3rem;">
       <h4>Technology Guides & Tools for Faculty</h4>
@@ -180,6 +469,8 @@
         </div>
       </div>
     </section>
+    
+    <!--replace
     <section style="margin-top: 3rem;">
       <h4>Blackboard Faculty Tutorials</h4>
       <div class="info-grid">
@@ -225,14 +516,210 @@
         </div>
       </div>
     </section>
+    
+    -->
+    <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">Blackboard Faculty</h4> 
+  
+  <section style="margin: 2rem auto; max-width: 1100px;">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+      
+
+
+  <!-- Blackboard Ultra Video Carousel -->
+   <h2 style=" color: #003366;">Blackboard Ultra Tutorials</h2>
+<section style="margin: 2rem auto; max-width: 1100px;">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+  
+  <div class="carousel-container">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/back--v1.png" class="scroll-icon left" onclick="scrollCarousel('ultra-carousel', -1)" alt="Scroll Left"/>
+    <div id="ultra-carousel" class="carousel">
+      <!-- Blackboard Ultra Video 1 -->
+      
+      <div class="video-card">
+        <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/ga62ByySsAc" 
+          title="Intro to Ultra" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Intro to Ultra</p>
+</div>
+ <!-- Blackboard Ultra Video 2 -->
+      </div>
+      <div class="video-card">
+        <iframe width="100%" height="200" 
+        src="https://www.youtube.com/embed/1ENC_PmS2FI" 
+        title="YouTube video" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+
+        <p>Edit Your Profile</p>
+      </div>
+       <!-- Blackboard Ultra Video 3 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/LnmTDnSU6-Q" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Types of Ultra Course Content</p>
+</div>
+
+<!-- Blackboard Ultra Video 4 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/6pYsU4xT3xE" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Notification Settings</p>
+</div>
+
+      <!-- Add more Ultra videos -->
+    </div>
+    <img src="https://img.icons8.com/ios-filled/50/c90606/forward--v1.png" class="scroll-icon right" onclick="scrollCarousel('ultra-carousel', 1)" alt="Scroll Right"/>
+  </div>
+</section>
+
+<!-- Blackboard Original Video Carousel -->
+<h2 style=" color: #003366;">Blackboard Original Tutorials</h2>
+<section style="margin: 2rem auto; max-width: 1100px;">
+   
+   <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+ 
+  <div class="carousel-container">
+    <img src="https://img.icons8.com/ios-filled/50/c90606/back--v1.png" class="scroll-icon left" onclick="scrollCarousel('original-carousel', -1)" alt="Scroll Left"/>
+    <div id="original-carousel" class="carousel">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Original Intro" allowfullscreen></iframe>
+        <p>Intro to Original View</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Original Quizzes" allowfullscreen></iframe>
+        <p>Taking Quizzes</p>
+      </div>
+      
+       <!-- Blackboard Ultra Video 3 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/LnmTDnSU6-Q" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Types of Ultra Course Content</p>
+</div>
+
+<!-- Blackboard Ultra Video 4 -->
+      <div class="video-card">
+  <iframe src="https://www.youtube.com/embed/6pYsU4xT3xE" 
+          title="Blackboard Ultra Tutorial" allowfullscreen 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+  </iframe>
+  <p>Notification Settings</p>
+</div>
+
+      <!-- Add more Original videos -->
+    </div>
+    <img src="https://img.icons8.com/ios-filled/50/c90606/forward--v1.png" class="scroll-icon right" onclick="scrollCarousel('original-carousel', 1)" alt="Scroll Right"/>
+  </div>
+</section>
+<!--Blackboard FAQs-->
+  
+      <h2 style=" color: #003366;">Frequently Asked Questions</h2>
+      
+      
+        <div class="accordion-item" onclick="toggleAccordion(this)">I can’t access my Blackboard course. What should I do?
+          <div class="accordion-content">Make sure your course has been made available. If the course is not visible, contact your division or Blackboard support.</div>
+        </div>
+        
+        
+        <div class="accordion-item" onclick="toggleAccordion(this)">How do I copy content from a previous semester?
+          <div class="accordion-content">Use the "Copy Content" tool in Ultra View or contact support for a guided walkthrough if using Classic View.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">Students report they can't see assignments. Why?
+          <div class="accordion-content">Check item visibility settings, release conditions, and due dates to ensure the assignment is available.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">Can I schedule announcements in advance?
+          <div class="accordion-content">Yes. In Blackboard Ultra, you can create announcements and schedule their release under the announcement settings.</div>
+        </div>
+        <div class="accordion-item" onclick="toggleAccordion(this)">Where can I find more help with Blackboard?
+          <div class="accordion-content">Visit <a href="https://help.blackboard.com" target="_blank">help.blackboard.com</a> or contact your institution’s instructional support team.</div>
+        </div>
+     
+    
+    </section>
+    </section>
+    
   </main>
   <script>
+    
     function toggleAccordion(current) {
       document.querySelectorAll('.accordion-item').forEach(item => {
         if (item !== current) item.classList.remove('active');
       });
       current.classList.toggle('active');
     }
+    
+    function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  };
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+      });
+    }
+  });
+
+  function closeLightbox() {
+    window.location.hash = "";
+  }
+
+  function scrollCarousel(id, direction) {
+    const container = document.getElementById(id);
+    const scrollAmount = 320;
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  document.querySelectorAll('.accordion-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    button.classList.toggle('active');
+
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+    } else {
+      content.style.display = 'block';
+    }
+  });
+});
+
+function toggleAccordion(element) {
+  element.classList.toggle('active');
+}
+    
   </script>
 </body>
 </html>
