@@ -385,7 +385,7 @@
     </div>
   </div>
   <header>
-    <h1>Faculty Technology Center</h1>
+    <h1>Faculty Technology Hub</h1>
     <p>Resources to support your teaching, communication, and course management</p>
   </header>
   
@@ -521,11 +521,18 @@
     <section style="margin-top: 3rem;">
   <h4 style="text-align: center; color: #003366;">Blackboard Faculty</h4> 
   
+   <!-- Blackboard Status Meter -->
+   
+  
   <section style="margin: 2rem auto; max-width: 1100px;">
   <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
     <div style="flex: 1 1 300px; min-width: 280px;">
       
-
+<h2 style="color: #003366;">Blackboard System Status</h2>
+  <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+    <div id="status-indicator" style="width: 15px; height: 15px; background-color: #28a745; border-radius: 50%;"></div>
+    <span id="status-label" style="font-weight: bold; color: #28a745;">Operating Normally</span>
+  </div>
 
   <!-- Blackboard Ultra Video Carousel -->
    <h2 style=" color: #003366;">Blackboard Ultra Tutorials</h2>
@@ -719,7 +726,28 @@
 function toggleAccordion(element) {
   element.classList.toggle('active');
 }
-    
+    function updateStatus(state) {
+    const indicator = document.getElementById('status-indicator');
+    const label = document.getElementById('status-label');
+
+    const statuses = {
+      normal: { text: 'Operating Normally', color: '#28a745' },
+      degraded: { text: 'Degraded Performance', color: '#ffc107' },
+      partial: { text: 'Partial Outage', color: '#fd7e14' },
+      outage: { text: 'Outage – Not Functional', color: '#dc3545' }
+    };
+
+    const current = statuses[state];
+    label.textContent = current.text;
+    label.style.color = current.color;
+    indicator.style.backgroundColor = current.color;
+  }
+
+  // Example test use:
+   //updateStatus('normal'); // switch to normal Outage
+   //updateStatus('degraded'); // switch to degraded Outage
+   //updateStatus('partial'); // switch to Partial Outage
+   //updateStatus('outage'); // switch to outage Outage
   </script>
 </body>
 </html>
