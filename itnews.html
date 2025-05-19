@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT NEWS | IT Support</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+ 
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .breadcrumb-banner {
+      background-color: #ffb400;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      position: relative;
+      clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0% 100%);
+    }
+
+    .breadcrumb-container {
+      background: #fff;
+      padding: 1rem 2rem;
+    }
+
+    .breadcrumb-container small {
+      color: #990000;
+      font-weight: bold;
+    }
+
+    .breadcrumb-banner h1 {
+      margin: 0;
+      color: #002244;
+      font-weight: bold;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #0056a6);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h2 {
+      margin: 0 0 1rem;
+    }
+    
+    
+    /*Section Header*/
+    section h4 {
+      color: #003366;
+  font-size: 2rem;
+  margin: 0 auto 1rem auto; /* centers the block */
+  text-align: center;
+  border-bottom: 2px solid #c90606;
+  display: table; /* makes it shrink to content and allow margin auto */
+  padding-bottom: 0.5rem;
+  
+  
+ h2 {
+  color: #003366;
+  font-size: 2rem;
+  text-align: left;
+  margin: 2rem 1.5rem 1rem 1.5rem;
+  border-bottom: 2px solid #c90606;
+  padding-bottom: 0.5rem;
+}
+
+}
+
+/*Search Bar*/
+.search-bar {
+  margin: 2rem auto 1.5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 0.6rem 1rem;
+  width: 90%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 6px rgba(255, 180, 0, 0.4);
+}
+
+/*White container*/
+.info-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+   
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      width: calc(50% - 1rem);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-title {
+      font-weight: bold;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    .calendar {
+      margin-bottom: 3rem;
+    }
+
+    .calendar img {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: auto;
+      border: 2px solid var(--gold);
+    }
+
+    /* Modal Styling */
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* ensure it’s above everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #ffffff; /* fallback instead of var(--white) */
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  color: #333333; /* fallback instead of var(--black) */
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #c90606;
+}
+
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="breadcrumb-container">
+  <big>
+    <a href="index.html" style="color: #990000; text-decoration: none;">Home</a> › 
+    <a href="student-support.html" style="color: #990000; text-decoration: none;">IT News and Updates</a>
+  </big>
+
+  <div class="breadcrumb-banner" style="max-width: fit-content; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+    <h1>IT News & Updates</h1>
+  </div>
+</div>
+
+
+
+ <!-- Page Header -->
+  <header>
+    <h1>IT News and Updates Center</h1>
+    <p>Stay Informed. Stay Secure. Stay Connected.</p>
+  </header>
+
+  <main class="container">
+    
+     <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search news or updates..." onkeyup="filterCards()">
+  </div>
+  
+  
+  <!-- IT NEWS -->
+  <!--White Container-->
+  <section style="margin: 2rem auto; max-width: 1100px;">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+      
+   
+    <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">Latest IT News</h4>
+  <div class="info-grid">
+    
+    <!-- News Section -->
+<!-- Modal 1 -->
+  <div class="card-grid" id="newsGrid">
+    <div class="card" onclick="openModal('modal1')">
+      <img src="https://imgur.com/7gZvPNz.png" alt="Blackboard Ultra Conversion">
+      <div class="card-title">The Road to Ultra: Converting Blackboard Original to Blackboard Ultra</div>
+    </div>
+    
+  
+
+<!-- Modal 2 -->
+    <div class="card" onclick="openModal('modal2')">
+      <img src="https://imgur.com/YwThuXK.png" alt="Cybersecurity">
+      <div class="card-title">Fighting Vulnerabilities: Keeping Lee College Safe from Digital Harm</div>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</section>
+</section>
+
+<!-- Blackboard NEWS -->
+ <!--White Container-->
+  <section style="margin: 2rem auto; max-width: 1100px;">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+ 
+
+  <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">Latest Blackboard Updates</h4>
+  <div class="info-grid">
+    
+   
+    <!-- Blackboard Status Meter -->
+<div style="margin-bottom: 2rem;">
+  <h2 style="color: #003865;">Blackboard System Status</h2>
+  <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+    <div id="status-indicator" style="width: 15px; height: 15px; background-color: #28a745; border-radius: 50%;"></div>
+    <span id="status-label" style="font-weight: bold; color: #28a745;">Operating Normally</span>
+  </div>
+</div>
+</section>
+
+    <!-- Blackboard News -->
+  
+<h2 style="color: #003865; margin-top: 3rem;">Blackboard Notices</h2>
+<p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: #666;"><strong>Last Updated:</strong> May 10, 2025 at 10:29 AM</p>
+
+
+
+<div style="background-color: #fff; border-left: 6px solid #c90606; padding: 1rem 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <p><strong>Pearson Maintenance:</strong></p>
+  <p>Maintenance downtime throughout 2024/25 to improve Pearson products and ensure the best experience possible.</p>
+  <ul>
+    <li>June 28, 2025</li>
+    <li>July 19, 2025</li>
+    <li>August 2, 2025</li>
+  </ul>
+  <p>Please contact Paula Lee or Jenise Gilbert if you have any questions.</p>
+  <p><small><strong>Posted:</strong> Thursday, May 15, 2025 – 9:56 AM</small></p>
+</div>
+
+
+
+
+</section>
+
+ <!-- Events -->
+ <!--White Container-->
+  <section style="margin: 2rem auto; max-width: 1100px;">
+  <div class="info-card" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1 1 300px; min-width: 280px;">
+
+
+  <section style="margin-top: 3rem;">
+  <h4 style="text-align: center; color: #003366;">IT Event Calendar</h4>
+  <div class="info-grid">
+    
+    <!-- Placeholder Image -->
+<div style="text-align: center; margin-bottom: 2rem;">
+  <a href="#" title="Calendar Coming Soon">
+    <img 
+      src="https://img.icons8.com/ios-filled/500/calendar--v1.png" 
+      alt="Calendar Placeholder" 
+      style="max-width: 200px; opacity: 0.7; transition: 0.3s ease;"
+      onmouseover="this.style.opacity='1'" 
+      onmouseout="this.style.opacity='0.7'"
+    >
+  </a>
+  <p style="margin-top: 0.5rem; color: #666;">Live calendar integration coming soon</p>
+</div>
+
+<!-- Hidden iframe for later use -->
+<!-- 
+<div style="border: 2px solid #003865; border-radius: 8px; overflow: hidden; max-width: 100%; margin-bottom: 2rem;">
+  <iframe 
+    src="https://calendar.google.com/calendar/embed?src=your_calendar_id_here&ctz=America%2FChicago"
+    style="border: 0"
+    width="100%" 
+    height="600" 
+    frameborder="0" 
+    scrolling="no">
+  </iframe>
+</div>
+    -->
+  </div>
+</section>
+ </section>
+ 
+<!-- Modal 1 -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h3>The Road to Ultra</h3>
+    <p>This article details the timeline and training resources for converting courses to Blackboard Ultra. Faculty and support staff can access help guides and conversion assistance by contacting the IT department.</p>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h3>Fighting Vulnerabilities</h3>
+    <p>As digital threats grow more sophisticated, our IT Security team continues to deploy updates and monitoring tools. Learn how you can keep your systems protected and report any suspicious activity.</p>
+  </div>
+</div>
+  
+ <script>
+
+  function updateStatus(state) {
+    const indicator = document.getElementById('status-indicator');
+    const label = document.getElementById('status-label');
+
+    const statuses = {
+      normal: { text: 'Operating Normally', color: '#28a745' },
+      degraded: { text: 'Degraded Performance', color: '#ffc107' },
+      partial: { text: 'Partial Outage', color: '#fd7e14' },
+      outage: { text: 'Outage – Not Functional', color: '#dc3545' }
+    };
+
+    const current = statuses[state];
+    label.textContent = current.text;
+    label.style.color = current.color;
+    indicator.style.backgroundColor = current.color;
+  }
+
+  // Example test use:
+   //updateStatus('normal'); // switch to normal Outage
+   //updateStatus('degraded'); // switch to degraded Outage
+   //updateStatus('partial'); // switch to Partial Outage
+   //updateStatus('outage'); // switch to outage Outage
+
+ function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  function filterCards() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const title = card.innerText.toLowerCase();
+      card.style.display = title.includes(input) ? 'block' : 'none';
+    });
+  }
+
+  // Close modal on outside click
+  window.onclick = function(event) {
+    document.querySelectorAll('.modal').forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  };
+</script>
+
+</body>
+</html>
