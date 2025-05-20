@@ -370,7 +370,55 @@
   height: 18px;
 }
 
-
+/*Modal content*/
+ .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .modal-content img {
+      max-width: 45%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .modal-content .text {
+      font-size: 1.1rem;
+      flex: 1;
+    }
+    
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
 
   </style>
 </head>
@@ -436,39 +484,241 @@
   <main class="container">
     <section style="margin-top: 3rem;">
       <h4>Technology Guides & Tools for Faculty</h4>
+      
       <div class="support-grid">
-        <div class="support-card">
+        
+         <!-- Card 1: OneLogin Setup -->
+        <div class="support-card" onclick="openModal('modal1')">
           <img src="https://img.icons8.com/?size=100&id=lvld4CTgijWQ&format=png&color=c90606" alt="OneLogin">
-          <h3>OneLogin Setup</h3>
+          <h3>OneLogin Account</h3>
           <p>Learn how to sign in and access Office 365, Blackboard, Teams, and other teaching platforms.</p>
         </div>
-        <div class="support-card">
-          <img src="https://img.icons8.com/?size=100&id=QY9gO0BEfsxm&format=png&color=c90606" alt="Password Reset">
-          <h3>Password Help</h3>
-          <p>Instructions for resetting your password and recovering access to your faculty account.</p>
+        
+        
+        <!-- MODAL 1 -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <img src="https://imgur.com/XvjdIRH.png" alt="OneLogin Screenshot">
+      <div class="text">
+       <h2 style="color:#003366;">OneLogin</h2>
+        <p>Use your OneLogin account to securely access multiple faculty services including Blackboard, email, Microsoft 365, and more. Username format: username@lee.edu.</p>
+      </div>
+    </div>
+  </div>
+        
+
+        <!-- Card 2: Support Ticket -->
+        <div class="support-card" onclick="openModal('modal2')">
+          <img src="https://img.icons8.com/?size=100&id=jcYHErVzhuSc&format=png&color=c90606" alt="Password Reset">
+          <h3>Submit a Support Ticket</h3>
+          <p>Support a ticket for the helpdesk, media, or telephone support.</p>
         </div>
-        <div class="support-card">
-          <img src="https://img.icons8.com/?size=100&id=38543&format=png&color=c90606" alt="Clear Cache">
-          <h3>Clear Cache</h3>
-          <p>Fix access or login issues by clearing your browser cache on Chrome, Firefox, or Safari.</p>
+        
+
+          <!-- Modal 2: Submit a Support Ticket -->
+          
+    <div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+
+    <div class="text">
+      <h2 style="color:#003366;">Submit a Support Ticket</h2>
+      <p>Please select the appropriate department below to submit your request, whether you require general IT assistance, support with instructional media, or help with telephone services.</p>
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1.5rem; align-items:flex-start;">
+        <a href="https://www.lee.edu/it/help/help-requests/index.php" target="_blank"
+           style="background:#003366; color:#fff; padding:0.5rem 1rem; width:220px; font-size:0.9rem; border-radius:5px; text-decoration:none; font-weight:600; text-align:center;">
+          Help Desk Support
+        </a>
+        <a href="https://www.lee.edu/it/media-requests/index.php" target="_blank"
+           style="background:#006699; color:#fff; padding:0.5rem 1rem; width:220px; font-size:0.9rem; border-radius:5px; text-decoration:none; font-weight:600; text-align:center;">
+          Media Services Request
+        </a>
+        <a href="https://www.lee.edu/it/files/telephone-request.pdf" target="_blank"
+           style="background:#990000; color:#fff; padding:0.5rem 1rem; width:220px; font-size:0.9rem; border-radius:5px; text-decoration:none; font-weight:600; text-align:center;">
+          Telephone Support Request
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+         <!-- Card 3: VPN -->
+        <div class="support-card"  onclick="openModal('modal3')">
+          <img src="https://img.icons8.com/?size=100&id=9939&format=png&color=c90606" alt="VPN">
+          <h3>VPN Access</h3>
+          <p>Use the VPN to securely connect to campus systems and resources when working from off-campus locations.</p>
         </div>
-        <div class="support-card">
+        
+        <!-- Modal 3: VPN -->
+        <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal3')">&times;</span>
+      <div class="text">
+        <h2 style="color:#003366;">VPN Access</h2>
+          <p><a href="https://yourdomain.com/vpn-access-form.pdf" target="_blank" rel="noopener" style="color:#003366; font-weight: bold;">Download the VPN Request Form (PDF)</a> and obtain the appropriate signatures before submission.</p>
+        <p>Contact the helpdesk for support.</p>
+        <p><strong>Email:</strong> helpdesk@lee.edu<br>
+        <strong>Phone:</strong> 281-425-6952</p>
+      </div>
+    </div>
+  </div>
+        
+        
+        
+        <!-- Card 4:  -->
+        <div class="support-card"  onclick="openModal('modal4')">
           <img src="https://img.icons8.com/?size=100&id=93&format=png&color=c90606" alt="Respondus">
-          <h3>Respondus for Faculty</h3>
+         <h3>Instructional Applications for Faculty</h3>
           <p>Steps to download, configure, and assign secure online exams using Respondus tools.</p>
         </div>
-        <div class="support-card">
+        
+        <!-- Modal 4: -->
+        <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal4')">&times;</span>
+      <div class="text">
+        <h2 style="color:#003366;">Instructional Applications</h2>
+          <p>Lee College supports a wide range of instructional platforms and publisher tools to enhance your teaching. Applications are organized by category for ease of reference.</p>
+          
+         <!-- Content & eTextbook Platforms -->
+    <h3 style="margin-top:2rem; color:#003366;"> Content & eTextbook Platforms</h3>
+    <ul style="padding-left:1.2rem;">
+      <li><strong>BibliU Bookshelf</strong> – A digital textbook platform providing instant access to assigned readings.</li>
+      <li><strong>OpenStax</strong> – Free, peer-reviewed open textbooks for core academic subjects.</li>
+      <li><strong>Simple Syllabus</strong> – A centralized tool for creating, sharing, and managing syllabi.</li>
+      <li><strong>SoftChalk</strong> – A platform to create interactive, HTML5 learning content with assessments and media.</li>
+      <li><strong>VitalSource</strong> – A comprehensive digital textbook delivery platform integrated with LMS systems.</li>
+    </ul>
+    
+     <!-- Assessment & Testing Tools -->
+    <h3 style="margin-top:2rem; color:#003366;"> Assessment & Testing Tools</h3>
+    <ul style="padding-left:1.2rem;">
+      <li><strong>Edpuzzle</strong> – Create interactive video lessons with embedded quizzes and progress tracking.</li>
+      <li><strong>Honorlock</strong> – A secure online proctoring service integrated with major LMS platforms.</li>
+      <li><strong>Respondus LockDown Browser</strong> – A custom browser that prevents cheating during online exams.</li>
+      <li><strong>Respondus Test Generator</strong> – Author and publish tests directly into your LMS.</li>
+      <li><strong>TestOut</strong> – Hands-on simulations and certification training for IT and business courses.</li>
+      <li><strong>Turnitin</strong> – Plagiarism detection and feedback tool for written assignments.</li>
+    </ul>
+    
+    <!-- Publisher Platforms -->
+    <h3 style="margin-top:2rem; color:#003366;"> Publisher Learning Platforms</h3>
+    <ul style="padding-left:1.2rem;">
+      <li><strong>Aktiv</strong> – A mobile-first platform for engaging students in chemistry and STEM subjects.</li>
+      <li><strong>Cengage</strong> – Digital courseware and learning resources across multiple disciplines.</li>
+      <li><strong>Evolve (Elsevier)</strong> – Platform supporting nursing and health science courses with study tools and simulations.</li>
+      <li><strong>Hawkes Learning</strong> – A mastery-based platform focused on math and statistics learning.</li>
+      <li><strong>Macmillan Learning</strong> – Publisher tools including LaunchPad and Achieve for literature, psychology, and more.</li>
+      <li><strong>McGraw Hill Connect</strong> – Adaptive learning assignments, quizzes, and eTextbook access.</li>
+      <li><strong>Pearson MyLab & Mastering</strong> – Discipline-specific platforms for science, math, business, and more.</li>
+      <li><strong>W.W. Norton</strong> – Publisher course tools like InQuizitive and Norton Ebook Reader.</li>
+    </ul>
+
+    <!-- Media & Engagement Tools -->
+    <h3 style="margin-top:2rem; color:#003366;"> Multimedia & Engagement Tools</h3>
+    <ul style="padding-left:1.2rem;">
+      <li><strong>Films on Demand</strong> – Academic video streaming platform with licensed films and documentaries.</li>
+      <li><strong>ShareStream Media</strong> – Secure video streaming platform for hosting lecture recordings and course media.</li>
+    </ul>
+
+    <p style="margin-top:2rem;">Need help integrating any of these tools? contact: <br>
+    
+    <p><strong>Paula Lee</strong> at plee@lee.edu or 281-425-6285</p>
+
+    <p><strong>Jenise Gilbert</strong> at jgilbert@lee.edu or 281-425-6215</p>
+
+or consult with the Instructional Design team. </p>
+    
+    
+      </div>
+    </div>
+  </div>
+        
+        
+        
+        
+         <!-- Card 5:  -->
+        <div class="support-card"  onclick="openModal('modal5')">
           <img src="https://img.icons8.com/ios-filled/50/c90606/microsoft-365.png" alt="Microsoft 365">
-          <h3>Microsoft 365 & OneDrive</h3>
-          <p>Access Word, Excel, Teams, Outlook and manage class files via your school account.</p>
+          <h3>Microsoft 365 Applications</h3>
+          <p>Access cloud-based tools like Outlook, Word, Excel, PowerPoint, Onedrive, and Teams through your college account. </p>
         </div>
-        <div class="support-card">
+        
+        
+        <!-- Modal 5:  -->
+        <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal5')">&times;</span>
+      <div class="text">
+        
+          <h2 style="color:#003366;">Microsoft 365 & OneDrive</h2>
+    <p>Microsoft 365 provides access to essential productivity tools including Word, Excel, PowerPoint, Outlook, and Teams through your Lee College account.</p>
+    
+    <p>With OneDrive, you can securely store, access, and share your documents from any device. Files are backed up automatically and can be accessed on or off campus.</p>
+    
+    <ul style="margin-top:1rem; padding-left:1.2rem;">
+      <li>Log in at <a href="https://leecollege.onelogin.com/login" target="_blank">OneLogin</a> using your employee credentials</li>
+      <li>Install Office apps on your personal devices</li>
+      <li>Collaborate in real-time with colleagues or students</li>
+      <li>Access cloud storage with 1TB of space via OneDrive</li>
+    </ul>
+
+        
+      </div>
+    </div>
+  </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- Card 6:  -->
+        
+        <div class="support-card" onclick="openModal('modal6')">
           <img src="https://img.icons8.com/?size=100&id=yXfHuwrmkCoM&format=png&color=c90606" alt="Web Conferencing">
           <h3>Using Webex & Teams</h3>
           <p>Host office hours or meetings with students using Webex or Microsoft Teams.</p>
         </div>
       </div>
     </section>
+    
+     <!-- Modal 6:  -->
+        <div id="modal6" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal6')">&times;</span>
+      <div class="text">
+        <h2 style="color:#003366;">Webex & Microsoft Teams</h2>
+    <p>Host virtual meetings, office hours, and collaborative sessions using Cisco Webex or Microsoft Teams—both supported by Lee College and available through your OneLogin Portal.</p>
+
+    <p>These platforms allow you to meet with students, staff, or external participants using audio, video, screen sharing, and chat features.</p>
+
+ <ul style="margin-top:1rem; padding-left:1.2rem;">
+      
+      <li>Schedule or join meetings from your Outlook calendar</li>
+      <li>Record sessions, share files, manage participants, and use screen sharing</li>
+    </ul>
+
+    <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem;">
+       <a href="https://leecollege.onelogin.com" target="_blank" style="background:#005D91; color:#fff; padding:0.5rem 1rem; border-radius:6px; text-decoration:none; font-weight:bold;">
+        Open Cisco Webex
+      </a>
+      
+      <a href="https://www.microsoft.com/en-us/microsoft-teams/log-in" target="_blank" style="background:#464EB8; color:#fff; padding:0.5rem 1rem; border-radius:6px; text-decoration:none; font-weight:bold;">
+        Open Microsoft Teams
+      </a>
+     <p>Webex can be accessed directly as an individual app from the <a href="https://leecollege.onelogin.com" target="_blank">OneLogin Portal</a>. Microsoft Teams is available by first opening the Microsoft 365 app within the portal and selecting Teams from the Office suite.</p>
+
+    </div>
+        
+      </div>
+    </div>
+  </div>
     
     <!--replace
     <section style="margin-top: 3rem;">
@@ -520,6 +770,21 @@
     -->
     <section style="margin-top: 3rem;">
   <h4 style="text-align: center; color: #003366;">Blackboard Faculty</h4> 
+  
+ <section style="margin: 2rem auto; max-width: 400px; padding: 1rem 1.25rem; background-color: #ffffff; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 1.05rem; line-height: 1.6;">
+  <h3 style="color: #003366; margin-bottom: 0.5rem; font-size: 1.2rem;">Blackboard Support</h3>
+  <p style="margin: 0;"><strong style="font-size: 1.1rem;">Paula Lee</strong><br>
+    <a href="mailto:plee@lee.edu" style="color:#003366; text-decoration:none;">plee@lee.edu</a><br>
+    281-425-6285
+  </p>
+  <hr style="margin: 1rem 0; border: 0; border-top: 1px solid #ccc;">
+  <p style="margin: 0;"><strong style="font-size: 1.1rem;">Jenise Gilbert</strong><br>
+    <a href="mailto:jgilbert@lee.edu" style="color:#003366; text-decoration:none;">jgilbert@lee.edu</a><br>
+    281-425-6215
+  </p>
+</section>
+
+
   
    <!-- Blackboard Status Meter -->
    
@@ -663,32 +928,39 @@
     </section>
     
   </main>
-  <script>
-    
-    function toggleAccordion(current) {
-      document.querySelectorAll('.accordion-item').forEach(item => {
-        if (item !== current) item.classList.remove('active');
-      });
-      current.classList.toggle('active');
-    }
-    
-    function openModal(id) {
-    document.getElementById(id).style.display = 'block';
+ <script>
+  // Toggle accordion functionality
+  function toggleAccordion(current) {
+    // Close all others
+    document.querySelectorAll('.accordion-item').forEach(item => {
+      if (item !== current) item.classList.remove('active');
+    });
+    // Toggle the clicked one
+    current.classList.toggle('active');
   }
 
+  // Open modal by ID
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.style.display = 'block';
+  }
+
+  // Close modal by ID
   function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
+    const modal = document.getElementById(id);
+    if (modal) modal.style.display = 'none';
   }
 
+  // Close modal if user clicks outside of it
   window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
+    document.querySelectorAll('.modal').forEach(modal => {
       if (event.target === modal) {
         modal.style.display = 'none';
       }
     });
   };
 
+  // Close modal if user presses Escape
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
       document.querySelectorAll('.modal').forEach(modal => {
@@ -697,50 +969,39 @@
     }
   });
 
+  // Close lightbox (for map zoom)
   function closeLightbox() {
     window.location.hash = "";
   }
 
+  // Scroll video carousels
   function scrollCarousel(id, direction) {
     const container = document.getElementById(id);
     const scrollAmount = 320;
-    container.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-    });
+    if (container) {
+      container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
   }
 
-  document.querySelectorAll('.accordion-button').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-    button.classList.toggle('active');
-
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-    } else {
-      content.style.display = 'block';
-    }
-  });
-});
-
-function toggleAccordion(element) {
-  element.classList.toggle('active');
-}
-    function updateStatus(state) {
+  // Blackboard status updater 
+  function updateStatus(state) {
     const indicator = document.getElementById('status-indicator');
     const label = document.getElementById('status-label');
-
     const statuses = {
       normal: { text: 'Operating Normally', color: '#28a745' },
       degraded: { text: 'Degraded Performance', color: '#ffc107' },
       partial: { text: 'Partial Outage', color: '#fd7e14' },
       outage: { text: 'Outage – Not Functional', color: '#dc3545' }
     };
-
-    const current = statuses[state];
-    label.textContent = current.text;
-    label.style.color = current.color;
-    indicator.style.backgroundColor = current.color;
+    if (statuses[state]) {
+      const current = statuses[state];
+      label.textContent = current.text;
+      label.style.color = current.color;
+      indicator.style.backgroundColor = current.color;
+    }
   }
 
   // Example test use:
