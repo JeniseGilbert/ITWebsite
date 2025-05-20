@@ -293,13 +293,59 @@
   </section>
   
   <section class="support-section">
-    <h2>Need additional help?</h2>
-    <div class="support-buttons">
-      <a href="#">Submit a Ticket</a>
-      <a href="#">Contact Help Desk</a>
-      <a href="#">Live Chat</a>
+  <h2>Need additional help?</h2>
+  <div class="support-buttons">
+    <a href="#" onclick="openModal('modalTicket')">Submit a Ticket</a>
+    <a href="#" onclick="openModal('modalContact')">Contact Help Desk</a>
+    <a href="#" onclick="openModal('modalChat')">Live Chat</a>
+  </div>
+</section>
+
+  
+  <!-- Modal: Submit a Ticket -->
+<div id="modalTicket" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalTicket')">&times;</span>
+    <div class="text">
+      <h2 style="color:#003366;">Submit a Support Ticket</h2>
+      <p>Please choose the appropriate department below to submit your request.</p>
+      <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1.5rem;">
+        <a href="https://www.lee.edu/it/help/help-requests/index.php" target="_blank" style="background:#003366; color:#fff; padding:0.5rem 1rem; border-radius:6px; text-align:center; text-decoration:none;">Help Desk Support</a>
+        <a href="https://www.lee.edu/it/media-requests/index.php" target="_blank" style="background:#006699; color:#fff; padding:0.5rem 1rem; border-radius:6px; text-align:center; text-decoration:none;">Media Services Request</a>
+        <a href="https://www.lee.edu/it/files/telephone-request.pdf" target="_blank" style="background:#990000; color:#fff; padding:0.5rem 1rem; border-radius:6px; text-align:center; text-decoration:none;">Telephone Support Request</a>
+      </div>
     </div>
-  </section>
+  </div>
+</div>
+
+<!-- Modal: Contact Help Desk -->
+<div id="modalContact" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalContact')">&times;</span>
+    <div class="text">
+      <h2 style="color:#003366;">Help Desk Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:helpdesk@lee.edu">helpdesk@lee.edu</a><br>
+         <strong>Phone:</strong> 281-425-MYLC(6952)</p>
+      <p><strong>Location:</strong> Moler Hall (Building 12), Room 102</p>
+      <p><strong>Hours:</strong><br>
+      Monday – Thursday: 7:30 AM – 5:15 PM<br>
+      Friday: 7:30 AM – 12:30 PM</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Live Chat -->
+<div id="modalChat" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalChat')">&times;</span>
+    <div class="text">
+      <h2 style="color:#003366;">Live Chat</h2>
+      <p>Live chat with a support specialist is <strong>coming soon</strong>! In the meantime, please reach out via email, phone, or the support ticket system.</p>
+    </div>
+  </div>
+</div>
+
+  
   
   <!-- Modal Structure -->
 <!-- MODAL 1 -->
